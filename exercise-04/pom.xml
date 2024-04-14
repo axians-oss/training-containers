@@ -6,11 +6,11 @@
 
     <parent>
         <groupId>nl.axians.training.containers</groupId>
-        <artifactId>containers-answers</artifactId>
+        <artifactId>containers-exercises</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>exercise-04-answer</artifactId>
+    <artifactId>exercise-04</artifactId>
     <version>1.1</version>
 
     <properties>

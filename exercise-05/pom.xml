@@ -11,7 +11,7 @@
         <relativePath />
     </parent>
 
-    <artifactId>exercise-05-answer</artifactId>
+    <artifactId>exercise-05</artifactId>
 
     <properties>
         <frontend-maven-plugin.version>1.15.0</frontend-maven-plugin.version>
