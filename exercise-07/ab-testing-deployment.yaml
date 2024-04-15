@@ -17,7 +17,14 @@ spec:
     spec:
       containers:
         - name: greetings
-          image: greetings:1.0
+          image: jhoeflaken/greetings:1.0
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "250m"
 
 ---
 
@@ -31,16 +38,23 @@ spec:
   selector:
     matchLabels:
       app: greetings
-      version: v1.1
+      version: v2.0
   template:
     metadata:
       labels:
         app: greetings
-        version: v1.1
+        version: v2.0
     spec:
       containers:
         - name: greetings
-          image: greetings:1.1
+          image: jhoeflaken/greetings:2.0
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "250m"
 
 ---
 
