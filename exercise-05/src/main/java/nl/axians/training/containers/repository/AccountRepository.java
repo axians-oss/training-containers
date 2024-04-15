@@ -1,6 +1,6 @@
 package nl.axians.training.containers.repository;
 
-import nl.axians.training.containers.exercise04.domain.Account;
+import nl.axians.training.containers.domain.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

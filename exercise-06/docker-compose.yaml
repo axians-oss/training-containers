@@ -6,7 +6,7 @@ services:
     container_name: 'postgres'
     environment:
       POSTGRES_USER:  'postgres'
-      POSTGRES_PASSWORD:  'N3ptun3s'
+      POSTGRES_PASSWORD:  ${PASSWORD}
       POSTGRES_DB:  'salescloud'
     ports:
       - "5432:5432"
@@ -16,7 +16,7 @@ services:
     container_name: 'pgadmin'
     environment:
       PGADMIN_DEFAULT_EMAIL: 'admin@nowhere.com'
-      PGADMIN_DEFAULT_PASSWORD: 'N3ptun3s'
+      PGADMIN_DEFAULT_PASSWORD: ${PASSWORD}
       PGADMIN_LISTEN_ADDRESS: '0.0.0.0'
     ports:
       - "5050:80"
@@ -26,16 +26,28 @@ services:
     container_name: 'activemq'
     environment:
       ARTEMIS_USER: 'admin'
-      ARTEMIS_PASSWORD: 'N3ptun3s'
+      ARTEMIS_PASSWORD: ${PASSWORD}
       ANONYMOUS_LOGIN: 'true'
     ports:
       - "8161:8161"
       - "61616:61616"
       - "5672:5672"
 
+  salescloud-event-processor:
+    image: 'jhoeflaken/salescloud-event-processor:1.0'
+    container_name: 'salescloud-event-processor'
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_ARTEMIS_BROKER_URL: 'tcp://activemq:61616'
+      SPRING_ARTEMIS_USER: 'admin'
+      SPRING_ARTEMIS_PASSWORD: ${PASSWORD}
+    depends_on:
+      - activemq
+
   otel-collector:
-    image: 'otel/opentelemetry-collector-contrib:latest'
-    container_name: 'otel-collector'
+    image: ''
+    container_name: ''
     ports:
       - "1888:1888"
       - "8888:8888"
@@ -50,8 +62,8 @@ services:
       - '--config=/etc/otel-collector.yaml'
 
   prometheus:
-    image: 'prom/prometheus:latest'
-    container_name: 'prometheus'
+    image: ''
+    container_name: ''
     ports:
       - "9090:9090"
     command:
@@ -60,13 +72,13 @@ services:
       - './docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml'
 
   grafana:
-    image: 'grafana/grafana:latest'
-    container_name: 'grafana'
+    image: ''
+    container_name: ''
     volumes:
       - './docker/grafana/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml'
     ports:
       - "3000:3000"
     environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=N3ptun3s
-      - GF_SMTP_ENABLED=false
+      GF_SECURITY_ADMIN_USER: 'admin'
+      GF_SECURITY_ADMIN_PASSWORD: ${PASSWORD}
+      GF_SMTP_ENABLED: 'false'

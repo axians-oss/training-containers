@@ -2,8 +2,8 @@ package nl.axians.training.containers.services;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
-import nl.axians.training.containers.exercise04.domain.Account;
-import nl.axians.training.containers.exercise04.repository.AccountRepository;
+import nl.axians.training.containers.domain.Account;
+import nl.axians.training.containers.repository.AccountRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

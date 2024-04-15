@@ -4,7 +4,7 @@ spring:
   datasource:
     url: 'jdbc:postgresql://localhost:5432/salescloud'
     username: 'postgres'
-    password: 'N3ptun3s'
+    password: ''
   jpa:
     hibernate:
       ddl-auto: update
@@ -16,7 +16,7 @@ spring:
     mode: native
     broker-url: 'tcp://localhost:61616'
     user: 'admin'
-    password: 'N3ptun3s'
+    password: ''
   jackson:
     serialization:
       fail-on-empty-beans: false

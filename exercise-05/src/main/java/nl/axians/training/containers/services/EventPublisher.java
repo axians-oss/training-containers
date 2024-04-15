@@ -1,6 +1,6 @@
 package nl.axians.training.containers.services;
 
-import nl.axians.training.containers.exercise04.domain.Opportunity;
+import nl.axians.training.containers.domain.Opportunity;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 

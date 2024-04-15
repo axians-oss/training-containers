@@ -1,9 +1,9 @@
 package nl.axians.training.containers.controllers;
 
 import lombok.extern.slf4j.Slf4j;
-import nl.axians.training.containers.exercise04.domain.Account;
-import nl.axians.training.containers.exercise04.domain.Opportunity;
-import nl.axians.training.containers.exercise04.services.AccountService;
+import nl.axians.training.containers.domain.Account;
+import nl.axians.training.containers.domain.Opportunity;
+import nl.axians.training.containers.services.AccountService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

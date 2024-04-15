@@ -1,7 +1,7 @@
 package nl.axians.training.containers.repository;
 
 
-import nl.axians.training.containers.exercise04.domain.Opportunity;
+import nl.axians.training.containers.domain.Opportunity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

@@ -1,10 +1,10 @@
 package nl.axians.training.containers.controllers;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import nl.axians.training.containers.exercise04.domain.Account;
-import nl.axians.training.containers.exercise04.domain.Opportunity;
-import nl.axians.training.containers.exercise04.domain.Views;
-import nl.axians.training.containers.exercise04.services.OpportunityService;
+import nl.axians.training.containers.domain.Account;
+import nl.axians.training.containers.domain.Opportunity;
+import nl.axians.training.containers.domain.Views;
+import nl.axians.training.containers.services.OpportunityService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

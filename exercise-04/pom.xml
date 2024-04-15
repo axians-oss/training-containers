@@ -34,6 +34,38 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.eclipse.jkube</groupId>
+                    <artifactId>kubernetes-maven-plugin</artifactId>
+                    <version>${jkube-maven-plugin.version}</version>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <buildStrategy>docker</buildStrategy>
+                        <images>
+                            <image>
+                                <name></name>
+                                <alias></alias>
+                                <build>
+                                    <from></from>
+                                    <entryPoint>
+                                        <exec>
+                                            <arg></arg>
+                                            <arg></arg>
+                                            <arg></arg>
+                                        </exec>
+                                    </entryPoint>
+                                    <ports>
+                                        <port></port>
+                                    </ports>
+                                </build>
+                            </image>
+                        </images>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -43,42 +75,6 @@
                     <execution>
                         <goals>
                             <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.eclipse.jkube</groupId>
-                <artifactId>kubernetes-maven-plugin</artifactId>
-                <version>${jkube-maven-plugin.version}</version>
-                <configuration>
-                    <verbose>true</verbose>
-                    <buildStrategy>docker</buildStrategy>
-                    <images>
-                        <image>
-                            <name>${project.artifactId}:${project.version}</name>
-                            <alias>${project.artifactId}</alias>
-                            <build>
-                                <from>openjdk:21-slim</from>
-                                <entryPoint>
-                                    <exec>
-                                        <arg>java</arg>
-                                        <arg>-jar</arg>
-                                        <arg>/maven/${project.build.finalName}.jar</arg>
-                                    </exec>
-                                </entryPoint>
-                                <ports>
-                                    <port>8080</port>
-                                </ports>
-                            </build>
-                        </image>
-                    </images>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>push</goal>
                         </goals>
                     </execution>
                 </executions>

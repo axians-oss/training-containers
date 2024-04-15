@@ -2,8 +2,8 @@ package nl.axians.training.containers.services;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
-import nl.axians.training.containers.exercise04.domain.Opportunity;
-import nl.axians.training.containers.exercise04.repository.OpportunityRepository;
+import nl.axians.training.containers.domain.Opportunity;
+import nl.axians.training.containers.repository.OpportunityRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
