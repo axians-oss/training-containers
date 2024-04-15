@@ -39,9 +39,12 @@ services:
     ports:
       - "8081:8081"
     environment:
-      SPRING_ARTEMIS_BROKER_URL: 'tcp://activemq:61616'
+      SPRING_ARTEMIS_BROKERURL: 'tcp://activemq:61616'
       SPRING_ARTEMIS_USER: 'admin'
       SPRING_ARTEMIS_PASSWORD: ${PASSWORD}
+      MANAGEMENT_OTLP_METRICS_EXPORT_URL: 'http://otel-collector:4318/v1/metrics'
+      MANAGEMENT_OTLP_TRACING_ENDPOINT: 'http://otel-collector:4318/v1/traces'
+      MANAGEMENT_OLTP_LOGGING_EXPORT_ENDPOINT: 'http://otel-collector:4317'
     depends_on:
       - activemq
 

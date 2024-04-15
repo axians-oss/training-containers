@@ -12,8 +12,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
-  artemis:
-    mode: native
+  activemq:
     broker-url: 'tcp://localhost:61616'
     user: 'admin'
     password: ''
