@@ -1,3 +1,19 @@
+### Stap 1: Configureren k3s
+Klik op _Preferences_ en vervolgens _Kubernetes_.
+
+Vink _Enable Kubernetes_ aan, selecteer versie v1.29.3 en klik op _Apply_.
+
+Als de optie _Cluster Dashboard_ actief wordt kun je daar op drukken en bekijken wat er draait.
+
+Voer de onderstaande commandoś uit om te verifiëren dat je er ook via de command prompt bij komt:
+
+```bash
+kubectl config use-context rancher-desktop
+kubectl get nodes
+```
+Je zou nu een regel moeten zien met de versie van k3s and het aantal minuten dat deze actief is.
+
+### Stap 2: Uitvoeren van de deployment
 Voor het onderstaande commando uit om een namespace aan te maken.
 
 ```bash
